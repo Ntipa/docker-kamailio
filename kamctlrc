@@ -9,7 +9,7 @@
 ## your SIP domain
 SIP_DOMAIN=asterisk.ntipa.it
 DOMAIN_ALIAS=asterisk.ntipa.it
-MY_IP_ADDR=[MY_IP_ADDR]
+MY_IP_ADDR=172.17.42.1
 MY_DOMAIN=asterisk.ntipa.it
 
 ## chrooted directory
