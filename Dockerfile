@@ -1,22 +1,36 @@
 # Face recognizer
 FROM debian:stable
 MAINTAINER Daniele Giglio <giglio.d@gmail.com>
-RUN apt-get update && apt-get upgrade -y
+
+RUN apt-get update 
 RUN apt-get install -y apt-utils
 RUN apt-get install -y curl
+RUN apt-get upgrade -y
 RUN curl http://deb.kamailio.org/kamailiodebkey.gpg | apt-key add -
-COPY kamailio.list /etc/apt/sources.list.d/
-
+#COPY kamailio.list /etc/apt/sources.list.d/
+RUN echo "deb     http://deb.kamailio.org/kamailio42 wheezy  main" > /etc/apt/sources.list.d/kamailio.list
+RUN echo "deb-src http://deb.kamailio.org/kamailio42 wheezy  main" >> /etc/apt/sources.list.d/kamailio.list
 RUN apt-get update
 #RUN apt-get -y install openssh-server && mkdir /var/run/sshd
-#RUN apt-get -y install supervisor
-COPY kamailio.cfg /etc/kamailio/
-COPY kamctlrc	  /etc/kamailio/
-COPY tls.cfg	  /etc/kamailio/
-COPY kamailio	  /etc/default/
+RUN apt-get -y install mysql-client
 RUN apt-get -y install kamailio kamailio-extra-modules kamailio-ims-modules kamailio-mysql-modules kamailio-nth kamailio-presence-modules kamailio-tls-modules kamailio-websocket-modules kamailio-xml-modules kamailio-xmpp-modules
 RUN apt-get -y install rtpproxy
+RUN service rtpproxy start
+COPY environment	/etc/
+COPY hosts		/etc/
+COPY vimrc		/etc/vim/
+COPY kamailio.cfg	/etc/kamailio/
+COPY kamctlrc		/etc/kamailio/
+COPY tls.cfg		/etc/kamailio/
+COPY kamailio		/etc/default/
+COPY rtpproxy		/etc/default/
+COPY set_ip_addr.sh	/usr/local/bin/
+RUN  chmod +x		/usr/local/bin/set_ip_addr.sh
+COPY init.sh		/usr/local/bin/
 
-EXPOSE 22 5060
+#COPY .my.cnf	  /root/
+RUN  sed -i 's/\#PW=\"\"/PW=\"12345678\"/' /usr/lib/x86_64-linux-gnu/kamailio/kamctl/kamdbctl.mysql
+RUN  set_ip_addr.sh
+EXPOSE 5060 8060 4443 9000 10000-10010
 
-CMD ["/usr/sbin/kamailio"]
+CMD ["/usr/local/bin/init.sh"]

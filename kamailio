@@ -3,7 +3,7 @@
 #
 
 # Set to yes to enable kamailio, once configured properly.
-RUN_KAMAILIO=no
+RUN_KAMAILIO=yes
 
 # User to run as
 USER=kamailio
