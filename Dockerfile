@@ -27,6 +27,7 @@ COPY rtpproxy		/etc/default/
 COPY set_ip_addr.sh	/usr/local/bin/
 RUN  chmod +x		/usr/local/bin/set_ip_addr.sh
 COPY init.sh		/usr/local/bin/
+RUN  chmod +x		/usr/local/bin/init.sh
 
 #COPY .my.cnf	  /root/
 RUN  sed -i 's/\#PW=\"\"/PW=\"12345678\"/' /usr/lib/x86_64-linux-gnu/kamailio/kamctl/kamdbctl.mysql
