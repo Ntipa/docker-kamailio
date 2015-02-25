@@ -11,7 +11,7 @@ docker image:
 * `sudo docker run -tid --name kamailio -P  --link mysql:mysql.ntipa.it tornabene/ntipa-kamailio`
 
 Container can be built with the command:
-* docker build -t="dgiglio/debian-kamailio:v0" /path/to/Dockerfile 
+* `docker build -t="dgiglio/debian-kamailio:v0" /path/to/Dockerfile `
 
 Container can be launched with the command:
 * `# docker run -tid --name kamailio -p 10000-10010:10000-10010 -p 4443:4443 -p 9000:9000 -p 5060:5060 -p 8060:8060 --link mysql:mysql.ntipa.it dgiglio/debian-kamailio:v0 /usr/local/bin/init.sh`
