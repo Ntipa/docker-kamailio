@@ -17,6 +17,7 @@ RUN apt-get install -y supervisor
 RUN apt-get -y install mysql-client
 RUN apt-get -y install kamailio kamailio-extra-modules kamailio-ims-modules kamailio-mysql-modules kamailio-nth kamailio-presence-modules kamailio-tls-modules kamailio-websocket-modules kamailio-xml-modules kamailio-xmpp-modules
 RUN apt-get -y install rtpproxy
+RUN apt-get -y install net-tools
 RUN service rtpproxy start
 COPY environment	/etc/
 COPY hosts		/etc/

@@ -94,6 +94,9 @@ DBROOTUSER="admin"
 # for an answer, while yes/no allow for automated, unassisted installs.
 #
 
+# Uses this charset when creating new db
+CHARSET=latin1
+
 # If to install tables for the modules in the EXTRA_MODULES variable.
 INSTALL_EXTRA_TABLES=yes
 
