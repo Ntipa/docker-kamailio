@@ -139,7 +139,7 @@ CTLENGINE="FIFO"
 # ACL_GROUPS="local ld int voicemail free-pstn"
 
 ## verbose - debug purposes - default '0'
-VERBOSE=1
+VERBOSE=3
 
 ## do (1) or don't (0) store plaintext passwords
 ## in the subscriber table - default '1'
