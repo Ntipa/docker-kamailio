@@ -12,6 +12,7 @@ RUN echo "deb     http://deb.kamailio.org/kamailio42 wheezy  main" > /etc/apt/so
 RUN echo "deb-src http://deb.kamailio.org/kamailio42 wheezy  main" >> /etc/apt/sources.list.d/kamailio.list
 RUN apt-get update
 RUN apt-get install -y rsyslog
+RUN apt-get install -y procps
 RUN apt-get install -y supervisor
 #RUN apt-get -y install openssh-server && mkdir /var/run/sshd
 RUN apt-get -y install mysql-client

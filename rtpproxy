@@ -5,8 +5,8 @@
 # To listen on an UDP socket, uncomment this line:
 CONTROL_SOCK=udp:127.0.0.1:7722
 
-$PRIV_IP=$(ip -o -4 addr list eth0 | awk '{print $4}' | cut -f1 -d'/')
+PRIV_IP=$(ip -o -4 addr list eth0 | awk '{print $4}' | cut -f1 -d'/')
 #$PUBLIC_IP=10.10.130.124
 
 # Additional options that are passed to the daemon.
-EXTRA_OPTS="-A $PUBLIC_IP -l $PRIV_IP -m 10000 -M 10010"
+EXTRA_OPTS="-l $PRIV_IP -m 10000 -M 10010"
