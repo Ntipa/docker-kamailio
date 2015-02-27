@@ -1,3 +1,4 @@
 .project
 /kamailio.cnf
 /kamdbctl.mysql
+/kamctlrc-test
