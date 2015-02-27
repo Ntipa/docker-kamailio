@@ -11,6 +11,7 @@ SIP_DOMAIN=asterisk.ntipa.it
 DOMAIN_ALIAS=asterisk.ntipa.it
 MY_IP_ADDR=172.17.42.1
 MY_DOMAIN=asterisk.ntipa.it
+PUBLIC_IP=$PUBLIC_IP
 
 ## chrooted directory
 # $CHROOT_DIR="/path/to/chrooted/directory"
