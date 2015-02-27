@@ -12,7 +12,7 @@ docker image:
 
 Container can be launched with the command:
 
-* `# docker run -tid --name kamailio -e PUBLIC_IP=X.X.X.X -p 10000-10010:10000-10010 -p 4443:4443 -p 9000:9000 -p 5060:5060 -p 8060:8060 --link mysql:mysql.ntipa.it dgiglio/debian-kamailio:v0 `
+* `docker run -tid --name kamailio -e DOMAIN=<string> -e PUBLIC_IP=x.x.x.x -p 10000-10010:10000-10010/udp -p 4443:4443 -p 9000:9000 -p 5060:5060 -p 5060:5060/udp -p 5061:5061 -p 5061:5061/udp -p 8060:8060 --link mysql:mysql.ntipa.it dgiglio/debian-kamailio:v0`
 
 Before starting Kamailio it's necessary to run 
 create mysqldb with `kamdbctl create` inside kamailio container

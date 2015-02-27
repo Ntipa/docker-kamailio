@@ -14,7 +14,6 @@ RUN apt-get update
 RUN apt-get install -y rsyslog
 RUN apt-get install -y procps
 RUN apt-get install -y supervisor
-#RUN apt-get -y install openssh-server && mkdir /var/run/sshd
 RUN apt-get -y install mysql-client
 RUN apt-get -y install kamailio kamailio-extra-modules kamailio-ims-modules kamailio-mysql-modules kamailio-nth kamailio-presence-modules kamailio-tls-modules kamailio-websocket-modules kamailio-xml-modules kamailio-xmpp-modules
 RUN apt-get -y install rtpproxy
@@ -29,15 +28,10 @@ COPY kamctlrc		/etc/kamailio/
 COPY tls.cfg		/etc/kamailio/
 COPY kamailio		/etc/default/
 COPY rtpproxy		/etc/default/
-#COPY set_ip_addr.sh	/usr/local/bin/
-#RUN  chmod +x /usr/local/bin/set_ip_addr.sh
 COPY init.sh		/usr/local/bin/
 RUN  chmod +x /usr/local/bin/init.sh
 RUN  sed -i 's/\#PW=\"\"/PW=\"12345678\"/' /usr/lib/x86_64-linux-gnu/kamailio/kamctl/kamdbctl.mysql
 
-#RUN  set_ip_addr.sh
-
 EXPOSE 5060 5061 8060 4443 9000 10000-10010
 
-#CMD ["/usr/local/bin/init.sh"]
 CMD ["usr/bin/supervisord"]

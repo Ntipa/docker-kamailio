@@ -12,4 +12,4 @@ PRIV_IP=$(ip -o -4 addr list eth0 | awk '{print $4}' | cut -f1 -d'/')
 #$PUBLIC_IP=10.10.130.124
 
 # Additional options that are passed to the daemon.
-EXTRA_OPTS="-d WARN:LOG_LOCAL5 -l $PRIV_IP -m 10000 -M 10010"
+EXTRA_OPTS="-d WARN:LOG_LOCAL5 -l $PRIV_IP -m 35000 –M 65535"

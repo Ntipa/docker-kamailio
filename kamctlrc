@@ -7,10 +7,10 @@
 # will use their internal default values.
 
 ## your SIP domain
-SIP_DOMAIN=asterisk.ntipa.it
-DOMAIN_ALIAS=asterisk.ntipa.it
+SIP_DOMAIN=$DOMAIN
+DOMAIN_ALIAS=$DOMAIN
 MY_IP_ADDR=172.17.42.1
-MY_DOMAIN=asterisk.ntipa.it
+MY_DOMAIN=$DOMAIN
 PUBLIC_IP=$PUBLIC_IP
 
 ## chrooted directory
@@ -45,7 +45,7 @@ DBROUSER="kamailioro"
 DBROPW="kamailioro"
 
 ## database access host (from where is kamctl used)
-DBACCESSHOST=asterisk.ntipa.it
+DBACCESSHOST=DOMAIN
 
 ## database super user (for ORACLE this is 'scheme-creator' user)
 DBROOTUSER="admin"
