@@ -32,6 +32,6 @@ COPY init.sh		/usr/local/bin/
 RUN  chmod +x /usr/local/bin/init.sh
 RUN  sed -i 's/\#PW=\"\"/PW=\"12345678\"/' /usr/lib/x86_64-linux-gnu/kamailio/kamctl/kamdbctl.mysql
 
-EXPOSE 5060 5061 8060 4443 9000 10000-10010
+EXPOSE 5060 8060 4443 9000 10000-10010
 
 CMD ["usr/bin/supervisord"]
