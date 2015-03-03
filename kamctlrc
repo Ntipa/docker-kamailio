@@ -45,7 +45,7 @@ DBROUSER="kamailioro"
 DBROPW="kamailioro"
 
 ## database access host (from where is kamctl used)
-DBACCESSHOST=DOMAIN
+DBACCESSHOST=172.17.42.1
 
 ## database super user (for ORACLE this is 'scheme-creator' user)
 DBROOTUSER="admin"

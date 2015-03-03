@@ -1,4 +1,3 @@
-# Face recognizer
 FROM debian:stable
 MAINTAINER Daniele Giglio <giglio.d@gmail.com>
 
@@ -20,7 +19,6 @@ RUN apt-get -y install rtpproxy
 RUN apt-get -y install net-tools
 RUN service rtpproxy start
 COPY environment	/etc/
-COPY hosts		/etc/
 COPY vimrc		/etc/vim/
 COPY supervisord.conf 	/etc/supervisor/conf.d/supervisord.conf
 COPY kamailio.cfg	/etc/kamailio/
@@ -28,9 +26,12 @@ COPY kamctlrc		/etc/kamailio/
 COPY tls.cfg		/etc/kamailio/
 COPY kamailio		/etc/default/
 COPY rtpproxy		/etc/default/
+COPY kamdbctl.mysql 	/usr/lib/x86_64-linux-gnu/kamailio/kamctl/
 COPY init.sh		/usr/local/bin/
 RUN  chmod +x /usr/local/bin/init.sh
-RUN  sed -i 's/\#PW=\"\"/PW=\"12345678\"/' /usr/lib/x86_64-linux-gnu/kamailio/kamctl/kamdbctl.mysql
+COPY rtpproxy.sh	/usr/local/bin/
+RUN  chmod +x /usr/local/bin/rtpproxy.sh
+#RUN  sed -i 's/\#PW=\"\"/PW=\"12345678\"/' /usr/lib/x86_64-linux-gnu/kamailio/kamctl/kamdbctl.mysql
 
 EXPOSE 5060 8060 4443 9000 10000-10010
 
