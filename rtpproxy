@@ -11,4 +11,4 @@ CONTROL_SOCK=udp:127.0.0.1:7722
 PRIV_IP=$(ip -o -4 addr list eth0 | awk '{print $4}' | cut -f1 -d'/')
 
 # Additional options that are passed to the daemon.
-EXTRA_OPTS="-d WARN:LOG_LOCAL5 -l PUBLIC_IP -m 10000 –M 10010"
+EXTRA_OPTS="-d WARN:LOG_LOCAL5 -l PUBLIC_IP -m 10000 -M 10010"
