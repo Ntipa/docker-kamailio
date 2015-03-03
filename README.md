@@ -8,7 +8,10 @@ docker image:
 * `sudo rm -rf /opt/ntipa/mysql_data`
 * `sudo mkdir -p /opt/ntipa/mysql_data` 
 * `sudo docker run -tid --name mysql -v /opt/ntipa/mysql_data:/var/lib/mysql -p 3306:3306 -e MYSQL_USER="admin" -e MYSQL_PASS="12345678" tornabene/ntipa-mysql`
-* `sudo docker run -tid --name kamailio -P  --link mysql:mysql.ntipa.it tornabene/ntipa-kamailio`
+
+Container can be built with the command:
+
+* `sudo docker build -t="dgiglio/debian-kamailio:v0" /patc/to/Dockerfile`
 
 Container can be launched with the command:
 
