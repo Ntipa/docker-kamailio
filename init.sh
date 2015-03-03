@@ -14,3 +14,8 @@ if [ "$DOMAIN" != "" ] ; then
     sed -ri "s/MY_DOMAIN=.*/MY_DOMAIN=$DOMAIN/" /etc/kamailio/kamctlrc;
     sed -ri "s/DBACCESSHOST=.*/DBACCESSHOST=$IP/" /etc/kamailio/kamctlrc;
 fi
+
+service rsyslog start;
+service rtpproxy start;
+service kamailio start;
+tail -f /var/log/syslog
