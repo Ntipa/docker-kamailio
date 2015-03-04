@@ -12,7 +12,7 @@ RUN echo "deb-src http://deb.kamailio.org/kamailio42 wheezy  main" >> /etc/apt/s
 RUN apt-get update
 RUN apt-get install -y rsyslog
 RUN apt-get install -y procps
-RUN apt-get install -y supervisor
+#RUN apt-get install -y supervisor
 RUN apt-get -y install mysql-client
 RUN apt-get -y install kamailio kamailio-extra-modules kamailio-ims-modules kamailio-mysql-modules kamailio-nth kamailio-presence-modules kamailio-tls-modules kamailio-websocket-modules kamailio-xml-modules kamailio-xmpp-modules
 RUN apt-get -y install rtpproxy
@@ -20,7 +20,7 @@ RUN apt-get -y install net-tools
 RUN service rtpproxy start
 COPY environment	/etc/
 COPY vimrc		/etc/vim/
-COPY supervisord.conf 	/etc/supervisor/conf.d/supervisord.conf
+#COPY supervisord.conf 	/etc/supervisor/conf.d/supervisord.conf
 COPY kamailio.cfg	/etc/kamailio/
 COPY kamctlrc		/etc/kamailio/
 COPY tls.cfg		/etc/kamailio/
@@ -31,8 +31,7 @@ COPY init.sh		/usr/local/bin/
 RUN  chmod +x /usr/local/bin/init.sh
 COPY rtpproxy.sh	/usr/local/bin/
 RUN  chmod +x /usr/local/bin/rtpproxy.sh
-#RUN  sed -i 's/\#PW=\"\"/PW=\"12345678\"/' /usr/lib/x86_64-linux-gnu/kamailio/kamctl/kamdbctl.mysql
 
 EXPOSE 5060 8060 4443 9000 10000-10010
 
-CMD ["usr/bin/supervisord"]
+CMD ["/usr/local/bin/init.sh"]
