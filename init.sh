@@ -18,6 +18,11 @@ if [ "$DOMAIN" != "" ] ; then
 fi
 
 service rsyslog start;
+
 service rtpproxy start;
+
+kamdbctl create;
+
 service kamailio start;
-tail -f /var/log/syslog
+
+tail -f /var/log/syslog;

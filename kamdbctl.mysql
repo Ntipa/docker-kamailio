@@ -30,7 +30,7 @@ fi
 
 # full privileges MySQL user
 if [ -z "$DBROOTUSER" ]; then
-	DBROOTUSER="root"
+	DBROOTUSER="admin"
 fi
 
 # Uncomment this to set the database root password if you want to run this 
