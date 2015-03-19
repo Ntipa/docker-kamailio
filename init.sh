@@ -6,7 +6,7 @@ sed -ri "s/([0-9]{1,3}\.){3}[0-9]{1,3}/$IP/" /etc/kamailio/kamctlrc;
 sed -ri "s/(MY_IP_ADDR\!)([0-9]{1,3}\.){3}[0-9]{1,3}/\1$IP/" /etc/kamailio/kamailio.cfg;
 sed -ri "s/PUBLIC_IP=.*/PUBLIC_IP=$PUBLIC_IP/" /etc/kamailio/kamctlrc;
 sed -ri "s/PUBLIC_IP/$PUBLIC_IP/g" /etc/kamailio/kamailio.cfg;
-sed -ri "s/PUBLIC_IP/$PUBLIC_IP/" /etc/default/rtpproxy;
+sed -ri "s/PUBLIC_IP/$PUBLIC_IP/g" /etc/default/rtpproxy;
 
 if [ "$DOMAIN" != "" ] ; then
     sed -ri "s/SIP_DOMAIN/$DOMAIN/g" /etc/kamailio/kamailio.cfg;
@@ -17,12 +17,12 @@ if [ "$DOMAIN" != "" ] ; then
     sed -ri "s/DBACCESSHOST=.*/DBACCESSHOST=$IP/" /etc/kamailio/kamctlrc;
 fi
 
-service rsyslog start;
+# service rsyslog start;
 
-service rtpproxy start;
+# service rtpproxy start;
 
-kamdbctl create;
+# kamdbctl create;
 
-service kamailio start;
+# service kamailio start;
 
-tail -f /var/log/syslog;
+# tail -f /var/log/syslog;
